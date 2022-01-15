@@ -36,12 +36,18 @@ const Results = ({ search, titleData }) => {
       <div>
         {data.map((item) => (
           <Container className="container-all">
-            <Content>
-              <h3>{item["title"]}</h3>
-              {/* <h3>Popularity: {item["popularity"]}</h3> */}
-            </Content>
-            <Wrapper className="columnize">
-              <div
+            <a href="https://www.github.com/jdaws97">
+              <Content>
+                <h3>{item["title"]}</h3>
+                {/* <h3>Popularity: {item["popularity"]}</h3> */}
+              </Content>
+              <Wrapper className="columnize">
+                {item["poster_path"] ? (
+                  <img src={imageUrl + item["poster_path"]} />
+                ) : (
+                  <img src={noImage} />
+                )}
+                {/* <div
                 className="container"
                 style={
                   item["poster_path"]
@@ -63,8 +69,9 @@ const Results = ({ search, titleData }) => {
                         backgroundRepeat: "no-repeat",
                       }
                 }
-              ></div>
-            </Wrapper>
+              ></div> */}
+              </Wrapper>
+            </a>
           </Container>
         ))}
       </div>
